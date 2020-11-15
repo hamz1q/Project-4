@@ -1,0 +1,54 @@
+#include "Plant.h"
+
+  // Name: Plant() - Default Constructor
+  // Description: Creates a new plant
+  // Preconditions: None
+  // Postconditions: Can create a plant
+Plant::Plant()
+{
+
+}
+
+  // Name: Plant(string name, int hp) - Overloaded constructor
+  // Description: Creates a new plant
+  // Preconditions: None
+  // Postconditions: Can be used to populate plant or child classes
+Plant::Plant(string name, int health)
+{
+  SetName(name);
+  SetHealth(health);
+}
+
+  // Name: ~Plant - Virtual Destructor
+  // Description: Makes sure everything in child class is deallocated
+  // Preconditions: None
+  // Postconditions: Everything dynamically allocated is deallocated
+Plant::~Plant()
+{
+
+}
+
+  // Name: Attack()
+  // Description: Describes attack statements for plant
+  // Preconditions: None
+  // Postconditions: Returns damage
+int Plant::Attack()
+{
+  int upper = 6;
+  int lower = 1;
+  int damage = (rand() % (upper - lower + 1)) + lower;
+
+  cout << "Attacking dealing 1-6 damage" << endl;
+  return damage;
+}
+
+  // Name: SpecialAttack()
+  // Description: Tells player that plant does not have special attack
+  // may be used for child class special attacks
+  // Preconditions: None
+  // Postconditions: May be used to call child class SpecialAttack
+int Plant::SpecialAttack()
+{
+  cout << "Plant alone does not have special attack!" << endl;
+  return 0;
+}
